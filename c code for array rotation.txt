@@ -1,0 +1,83 @@
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+int i,j,m,n,row,col,a[50][50],temp[50][50],sum=0,tempr;
+printf("Enter the number of rows\n");
+scanf("%d",&row);
+printf("Enter the number of columns\n");
+scanf("%d",&col);
+
+	printf("Enter the elements of the matrix\n");
+	for(i=0;i<row;i++)
+	{
+	for(j=0;j<col;j++)
+	{
+	scanf("%d",&a[i][j]);
+	}
+	printf("\n");
+	}
+	
+	for(i=0;i<row;i++)
+	{
+	for(j=0;j<col;j++)
+	{
+	printf("%d",a[i][j]);
+	}
+	printf("\n");
+	}
+
+while (row > 1) {  
+	for(i=0,j=0;j<col;j++)
+	{
+	sum=sum+a[i][j];
+	}
+	printf("sum is %d\n",sum);
+	
+	row = row - 1;
+	for (i=1, m=0; i<row; i++, m++) {
+		for(j=0,n=0; j<col; j++, n++) {
+			temp[m][n]= a[i][j];
+		}
+	}
+	
+	printf("Matrix after deleting first and last column is:\n");
+	for(i=0;i<row-1;i++)
+	{
+	for(j=0;j<col;j++)
+	{
+	printf("%d",temp[i][j]);
+	}
+	printf("\n");
+	}
+	
+	
+	for(j=col - 1, m=0;j>=0;j--,m++){
+		for(i=0,n=0;i<row-1;i++, n++) {
+			a[m][n] = temp[i][j];
+		}
+	}
+	
+	row = row - 1;
+	tempr = row;
+	row= col;
+	col = tempr;
+	
+	
+	printf("Matrix after rotation is:\n");
+	for(i=0;i<row;i++)
+	{
+		for(j=0;j<col;j++)
+		{
+			printf("%d",a[i][j]);
+		}
+			printf("\n");
+	}
+	
+		sum=0;
+	
+	}
+	
+	getch();
+}
+		
